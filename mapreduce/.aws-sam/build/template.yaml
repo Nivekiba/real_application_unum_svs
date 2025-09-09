@@ -1,0 +1,86 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Globals:
+  Function:
+    Environment:
+      Variables:
+        CHECKPOINT: true
+        FAAS_PLATFORM: aws
+        GC: true
+        UNUM_INTERMEDIARY_DATASTORE_NAME: unum-intermediate-datastore-mapreduce
+        UNUM_INTERMEDIARY_DATASTORE_TYPE: dynamodb
+    Timeout: 900
+Outputs:
+  MapFunction:
+    Value:
+      Fn::GetAtt:
+      - MapFunction
+      - Arn
+  ReduceFunction:
+    Value:
+      Fn::GetAtt:
+      - ReduceFunction
+      - Arn
+  ShuffleFunction:
+    Value:
+      Fn::GetAtt:
+      - ShuffleFunction
+      - Arn
+  SplitFunction:
+    Value:
+      Fn::GetAtt:
+      - SplitFunction
+      - Arn
+Resources:
+  MapFunction:
+    Properties:
+      CodeUri: MapFunction
+      Handler: main.lambda_handler
+      Policies:
+      - AWSLambdaRole
+      - AmazonS3FullAccess
+      - AWSLambdaBasicExecutionRole
+      - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+    Metadata:
+      SamResourceId: MapFunction
+  ReduceFunction:
+    Properties:
+      CodeUri: ReduceFunction
+      Handler: main.lambda_handler
+      Policies:
+      - AWSLambdaRole
+      - AmazonS3FullAccess
+      - AWSLambdaBasicExecutionRole
+      - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+    Metadata:
+      SamResourceId: ReduceFunction
+  ShuffleFunction:
+    Properties:
+      CodeUri: ShuffleFunction
+      Handler: main.lambda_handler
+      Policies:
+      - AWSLambdaRole
+      - AmazonS3FullAccess
+      - AWSLambdaBasicExecutionRole
+      - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+    Metadata:
+      SamResourceId: ShuffleFunction
+  SplitFunction:
+    Properties:
+      CodeUri: SplitFunction
+      Handler: main.lambda_handler
+      Policies:
+      - AWSLambdaRole
+      - AmazonS3FullAccess
+      - AWSLambdaBasicExecutionRole
+      - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+    Metadata:
+      SamResourceId: SplitFunction
+Transform: AWS::Serverless-2016-10-31

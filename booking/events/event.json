@@ -1,0 +1,12 @@
+{
+	"Data": {
+		"Source": "http",
+		"Value": {
+			"expected_result": {
+				"result": "success",
+				"reason": "hotel"
+			},
+			"request-id": "1234567890"
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+    "Name": "cancelFlight",
+    "Checkpoint": true,
+    "Debug": false,
+    "Next": {
+        "Name": "cancelRental",
+	"InputType": "Scalar"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "Name": "reserveHotel",
+    "Checkpoint": true,
+    "Debug": false,
+    "Next": {
+        "Name": "reserveRental",
+	"InputType": "Scalar"
+    },
+    "Start": true
+}
+

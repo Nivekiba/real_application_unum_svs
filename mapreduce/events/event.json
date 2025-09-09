@@ -1,0 +1,12 @@
+{
+	"Data": {
+		"Source": "http",
+		"Value": {
+			"benchmark_bucket": "benchmark-mapreduce-bucket",
+			"words_bucket": "input-mapreduce-bucket",
+			"words": "large.txt",
+			"n_mappers": 4,
+			"output_bucket": "output-mapreduce-bucket"
+		}
+	}
+}

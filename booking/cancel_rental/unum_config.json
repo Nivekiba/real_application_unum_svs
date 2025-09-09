@@ -1,0 +1,10 @@
+{
+    "Name": "cancelRental",
+    "Checkpoint": true,
+    "Debug": false,
+    "Next": {
+        "Name": "cancelHotel",
+	"InputType": "Scalar"
+    }
+}
+

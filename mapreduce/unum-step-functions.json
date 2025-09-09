@@ -1,0 +1,44 @@
+{
+  "Comment": "A MapReduce example of Unum application",
+  "StartAt": "Split",
+  "States": {
+    "Split": {
+      "Type": "Task",
+      "Resource": "Split",
+      "Next": "MapState"
+    },
+    "MapState": {
+      "Type": "Map",
+      "Next": "Shuffle",
+      "Iterator": {
+        "StartAt": "Map",
+        "States": {
+          "Map": {
+            "Type": "Task",
+            "Resource": "Map",
+            "End": true
+          }
+        }
+      }
+    },
+    "Shuffle": {
+      "Type": "Task",
+      "Resource": "Shuffle",
+      "Next": "ReduceState"
+    },
+    "ReduceState": {
+      "Type": "Map",
+      "Iterator": {
+        "StartAt": "Reduce",
+        "States": {
+          "Reduce": {
+            "Type": "Task",
+            "Resource": "Reduce",
+            "End": true
+          }
+        }
+      },
+      "End": true
+    }
+  }
+}

@@ -1,0 +1,105 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Globals:
+  Function:
+    Environment:
+      Variables:
+        CHECKPOINT: true
+        FAAS_PLATFORM: aws
+        GC: true
+        UNUM_INTERMEDIARY_DATASTORE_NAME: unum-inter-datastore-booking
+        UNUM_INTERMEDIARY_DATASTORE_TYPE: dynamodb
+    Timeout: 900
+Outputs:
+  cancelFlightFunction:
+    Value: !GetAtt cancelFlightFunction.Arn
+  cancelHotelFunction:
+    Value: !GetAtt cancelHotelFunction.Arn
+  cancelRentalFunction:
+    Value: !GetAtt cancelRentalFunction.Arn
+  confirmFunction:
+    Value: !GetAtt confirmFunction.Arn
+  reserveFlightFunction:
+    Value: !GetAtt reserveFlightFunction.Arn
+  reserveHotelFunction:
+    Value: !GetAtt reserveHotelFunction.Arn
+  reserveRentalFunction:
+    Value: !GetAtt reserveRentalFunction.Arn
+Resources:
+  cancelFlightFunction:
+    Properties:
+      CodeUri: cancel_flight/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  cancelHotelFunction:
+    Properties:
+      CodeUri: cancel_hotel/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  cancelRentalFunction:
+    Properties:
+      CodeUri: cancel_rental/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  confirmFunction:
+    Properties:
+      CodeUri: confirm/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  reserveFlightFunction:
+    Properties:
+      CodeUri: reserve_flight/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  reserveHotelFunction:
+    Properties:
+      CodeUri: reserve_hotel/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  reserveRentalFunction:
+    Properties:
+      CodeUri: reserve_rental/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AmazonS3FullAccess
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

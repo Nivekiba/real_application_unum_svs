@@ -1,0 +1,10 @@
+{
+    "Name": "reserveFlight",
+    "Checkpoint": true,
+    "Debug": false,
+    "Next": {
+        "Name": "confirm",
+	"InputType": "Scalar"
+    }
+}
+

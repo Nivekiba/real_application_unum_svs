@@ -1,0 +1,36 @@
+Globals:
+  ApplicationName: unum-mapreduce-system
+  WorkflowType: step-functions
+  WorkflowDefinition: unum-step-functions.json
+  FaaSPlatform: aws
+  UnumIntermediaryDataStoreType: dynamodb
+  UnumIntermediaryDataStoreName: unum-intermediate-datastore-mapreduce
+  Checkpoint: true
+  Debug: true
+  GC: true
+Functions:
+  Split:
+    Properties:
+      CodeUri: split/
+      Runtime: python3.12
+      Start: true
+      Policies:
+        - AmazonS3FullAccess
+  Map:
+    Properties:
+      CodeUri: map/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess
+  Shuffle:
+    Properties:
+      CodeUri: shuffle/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess
+  Reduce:
+    Properties:
+      CodeUri: reduce/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess

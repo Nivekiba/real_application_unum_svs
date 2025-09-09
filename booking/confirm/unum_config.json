@@ -1,0 +1,10 @@
+{
+    "Name": "confirm",
+    "Checkpoint": true,
+    "Debug": false,
+    "Next": {
+        "Name": "cancelFlight",
+	"InputType": "Scalar"
+    }
+}
+

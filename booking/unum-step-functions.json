@@ -1,0 +1,41 @@
+{
+  "Comment": "A booking system workflow with reservation and cancellation steps",
+  "StartAt": "reserveHotel",
+  "States": {
+    "reserveHotel": {
+      "Type": "Task",
+      "Resource": "reserve_hotel",
+      "Next": "reserveRental"
+    },
+    "reserveRental": {
+      "Type": "Task",
+      "Resource": "reserve_rental",
+      "Next": "reserveFlight"
+    },
+    "reserveFlight": {
+      "Type": "Task",
+      "Resource": "reserve_flight",
+      "Next": "confirm"
+    },
+    "confirm": {
+      "Type": "Task",
+      "Resource": "confirm",
+      "Next": "cancelFlight"
+    },
+    "cancelFlight": {
+      "Type": "Task",
+      "Resource": "cancel_flight",
+      "Next": "cancelRental"
+    },
+    "cancelRental": {
+      "Type": "Task",
+      "Resource": "cancel_rental",
+      "Next": "cancelHotel"
+    },
+    "cancelHotel": {
+      "Type": "Task",
+      "Resource": "cancelHotel",
+      "End": true
+    }
+  }
+}

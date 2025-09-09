@@ -1,0 +1,40 @@
+Globals:
+  ApplicationName: unum-booking-system
+  WorkflowType: step-functions
+  WorkflowDefinition: unum-step-functions.json
+  FaaSPlatform: aws
+  UnumIntermediaryDataStoreType: dynamodb
+  UnumIntermediaryDataStoreName: unum-inter-datastore-booking
+  Checkpoint: true
+  Debug: true
+  GC: true
+Functions:
+  reserveHotel:
+    Properties:
+      CodeUri: reserve_hotel/
+      Runtime: python3.12
+      Start: true
+  reserveRental:
+    Properties:
+      CodeUri: reserve_rental/
+      Runtime: python3.12
+  reserveFlight:
+    Properties:
+      CodeUri: reserve_flight/
+      Runtime: python3.12
+  confirm:
+    Properties:
+      CodeUri: confirm/
+      Runtime: python3.12
+  cancelFlight:
+    Properties:
+      CodeUri: cancel_flight/
+      Runtime: python3.12
+  cancelRental:
+    Properties:
+      CodeUri: cancel_rental/
+      Runtime: python3.12
+  cancelHotel:
+    Properties:
+      CodeUri: cancel_hotel/
+      Runtime: python3.12

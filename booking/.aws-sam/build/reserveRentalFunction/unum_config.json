@@ -1,0 +1,10 @@
+{
+    "Name": "reserveRental",
+    "Checkpoint": true,
+    "Debug": false,
+    "Next": {
+        "Name": "reserveFlight",
+	"InputType": "Scalar"
+    }
+}
+

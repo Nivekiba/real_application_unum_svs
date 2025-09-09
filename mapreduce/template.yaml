@@ -1,0 +1,66 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Globals:
+  Function:
+    Environment:
+      Variables:
+        CHECKPOINT: true
+        FAAS_PLATFORM: aws
+        GC: true
+        UNUM_INTERMEDIARY_DATASTORE_NAME: unum-intermediate-datastore-mapreduce
+        UNUM_INTERMEDIARY_DATASTORE_TYPE: dynamodb
+    Timeout: 900
+Outputs:
+  MapFunction:
+    Value: !GetAtt MapFunction.Arn
+  ReduceFunction:
+    Value: !GetAtt ReduceFunction.Arn
+  ShuffleFunction:
+    Value: !GetAtt ShuffleFunction.Arn
+  SplitFunction:
+    Value: !GetAtt SplitFunction.Arn
+Resources:
+  MapFunction:
+    Properties:
+      CodeUri: map/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  ReduceFunction:
+    Properties:
+      CodeUri: reduce/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  ShuffleFunction:
+    Properties:
+      CodeUri: shuffle/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  SplitFunction:
+    Properties:
+      CodeUri: split/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+        - AmazonDynamoDBFullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

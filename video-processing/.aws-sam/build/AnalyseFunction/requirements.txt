@@ -1,0 +1,4 @@
+cfn-flip
+coloredlogs
+PyGithub
+opencv-python-headless

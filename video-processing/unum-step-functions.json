@@ -1,0 +1,30 @@
+{
+  "Comment": "A Video Processing example of Unum application",
+  "StartAt": "Decode",
+  "States": {
+    "Decode": {
+      "Type": "Task",
+      "Resource": "Split",
+      "Next": "AnalyseMap"
+    },
+    "AnalyseMap": {
+      "Type": "Map",
+      "Next": "Summarize",
+      "Iterator": {
+        "StartAt": "Map",
+        "States": {
+          "Map": {
+            "Type": "Task",
+            "Resource": "Analyse",
+            "End": true
+          }
+        }
+      }
+    },
+    "Summarize": {
+      "Type": "Task",
+      "Resource": "Summarize",
+      "Next": "ReduceState"
+    }
+  }
+}

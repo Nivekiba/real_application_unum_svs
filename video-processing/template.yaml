@@ -1,0 +1,53 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Globals:
+  Function:
+    Environment:
+      Variables:
+        CHECKPOINT: true
+        FAAS_PLATFORM: aws
+        GC: true
+        UNUM_INTERMEDIARY_DATASTORE_NAME: unum-intermediate-datastore-video-processing
+        UNUM_INTERMEDIARY_DATASTORE_TYPE: dynamodb
+    Timeout: 900
+Outputs:
+  AnalyseFunction:
+    Value: !GetAtt AnalyseFunction.Arn
+  DecodeFunction:
+    Value: !GetAtt DecodeFunction.Arn
+  SummarizeFunction:
+    Value: !GetAtt SummarizeFunction.Arn
+Resources:
+  AnalyseFunction:
+    Properties:
+      CodeUri: analyse/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  DecodeFunction:
+    Properties:
+      CodeUri: decode/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  SummarizeFunction:
+    Properties:
+      CodeUri: summarize/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

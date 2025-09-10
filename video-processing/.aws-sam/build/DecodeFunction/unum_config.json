@@ -1,0 +1,10 @@
+{
+  "Name": "Decode",
+  "Checkpoint": true,
+  "Debug": false,
+  "Next": {
+    "Name": "Analyse",
+    "InputType": "Map"
+  },
+  "Start": true
+}

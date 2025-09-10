@@ -1,0 +1,30 @@
+Globals:
+  ApplicationName: unum-video-processing-system
+  WorkflowType: step-functions
+  WorkflowDefinition: unum-step-functions.json
+  FaaSPlatform: aws
+  UnumIntermediaryDataStoreType: dynamodb
+  UnumIntermediaryDataStoreName: unum-intermediate-datastore-video-processing
+  Checkpoint: true
+  Debug: true
+  GC: true
+Functions:
+  Decode:
+    Properties:
+      CodeUri: decode/
+      Runtime: python3.12
+      Start: true
+      Policies:
+        - AmazonS3FullAccess
+  Analyse:
+    Properties:
+      CodeUri: analyse/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess
+  Summarize:
+    Properties:
+      CodeUri: summarize/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess

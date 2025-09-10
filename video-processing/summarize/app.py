@@ -7,7 +7,7 @@ import sys
 
 def lambda_handler(event, context):
     # previous handler(event) logic preserved
-    frames = event["frames"]
+    frames = event
 
     logs = {}
     for xs in frames:

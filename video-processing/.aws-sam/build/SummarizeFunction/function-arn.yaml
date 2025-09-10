@@ -1,3 +1,0 @@
-Analyse: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-AnalyseFunction-0r7sUi6wbEWC
-Decode: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-DecodeFunction-h2kgAu39OSG1
-Summarize: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-SummarizeFunction-3ZexVlL0T1CJ

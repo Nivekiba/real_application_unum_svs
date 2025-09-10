@@ -1,9 +1,0 @@
-{
-    "Name": "Shuffle",
-    "Checkpoint": true,
-    "Debug": false,
-    "Next": {
-        "Name": "Reduce",
-        "InputType": "Map"
-    }
-}

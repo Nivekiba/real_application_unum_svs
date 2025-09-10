@@ -1169,7 +1169,8 @@ class UnumContinuation(object):
 
         num_branches = len(branch_instance_names)
 
-        if self.datastore.fanin_sync_ready(session, aggregation_function_instance_name, my_index, kwargs['my_curr_instance_name'], num_branches):
+        # remove kwargs[] argument
+        if self.datastore.fanin_sync_ready(session, aggregation_function_instance_name, my_index, num_branches):
             payload['Data'] = {'Source': self.datastore.my_type, 'Value': branch_instance_names}
             payload['Session'] = session
 

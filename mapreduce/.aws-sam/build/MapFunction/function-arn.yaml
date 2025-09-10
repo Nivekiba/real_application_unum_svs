@@ -1,4 +1,0 @@
-Map: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-MapFunction-Wj2sTAcEnHCI
-Reduce: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-ReduceFunction-Peq2uu7nMUE0
-Shuffle: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-ShuffleFunction-CyDLV77qtI4k
-Split: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-SplitFunction-wmvIyr6Ex7Rr

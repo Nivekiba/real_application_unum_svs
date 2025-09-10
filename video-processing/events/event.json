@@ -2,12 +2,12 @@
 	"Data": {
 		"Source": "http",
 		"Value": {
-			"video": "video.mp4",
+			"video": "video_large.mp4",
 			"n_frames": 100,
 			"batch_size": 10,
 			"frames_bucket": "output-mapreduce-bucket",
 			"input_bucket": "input-videoprocessing-bucket",
-			"benchmark_bucket": "benchmark-videoprocessing-bucket",
+			"benchmark_bucket": "input-videoprocessing-bucket",
 
 			"model_weights": "frozen_inference_graph.pb",
 			"model_config": "faster_rcnn_resnet50_coco_2018_01_28.pbtxt"

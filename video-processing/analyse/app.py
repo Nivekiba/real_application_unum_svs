@@ -23,6 +23,7 @@ labels = ["person", "bicycle", "car", "motorcycle",
 
 
 def load_model(bucket, weights_blob, config_blob, dest_dir):
+    print(f"Loading model from {bucket} {weights_blob} {config_blob}")
     weights_path = os.path.join(dest_dir, "model.weights")
     os.makedirs(os.path.dirname(weights_path), exist_ok=True)
     s3.download_file(bucket, weights_blob, weights_path)

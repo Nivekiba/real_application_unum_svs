@@ -1,7 +1,0 @@
-cancelFlight: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-booking-system-cancelFlightFunction-T3TigYThFaV2
-cancelHotel: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-booking-system-cancelHotelFunction-Vy1inn9DGlaE
-cancelRental: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-booking-system-cancelRentalFunction-PdlhZ3tKoOqv
-confirm: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-booking-system-confirmFunction-sFxnSq4VHbTd
-reserveFlight: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-booking-system-reserveFlightFunction-SnMaLlzBT5Ar
-reserveHotel: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-booking-system-reserveHotelFunction-PP2D0ueDlwoc
-reserveRental: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-booking-system-reserveRentalFunction-DJkcmBG1eHtI

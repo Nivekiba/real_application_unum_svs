@@ -22,9 +22,9 @@ Resources:
       CodeUri: analyse/
       Handler: main.lambda_handler
       Policies:
+        - AmazonDynamoDBFullAccess
         - AWSLambdaBasicExecutionRole
         - AWSLambdaRole
-        - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
       Runtime: python3.12
     Type: AWS::Serverless::Function
@@ -33,9 +33,9 @@ Resources:
       CodeUri: decode/
       Handler: main.lambda_handler
       Policies:
+        - AmazonDynamoDBFullAccess
         - AWSLambdaBasicExecutionRole
         - AWSLambdaRole
-        - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
       Runtime: python3.12
     Type: AWS::Serverless::Function
@@ -44,9 +44,9 @@ Resources:
       CodeUri: summarize/
       Handler: main.lambda_handler
       Policies:
+        - AmazonDynamoDBFullAccess
         - AWSLambdaBasicExecutionRole
         - AWSLambdaRole
-        - AmazonDynamoDBFullAccess
         - AmazonS3FullAccess
       Runtime: python3.12
     Type: AWS::Serverless::Function

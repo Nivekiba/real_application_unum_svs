@@ -379,7 +379,7 @@ class Unum(object):
                 # I have siblings.
                 my_idx = self.my_gc_tasks[k].index(self.curr_instance_name)
 
-                if self.ds.gc_sync_ready(self.curr_session, k, my_idx, self.get_my_instance_name(), len(self.my_gc_tasks[k])):
+                if self.ds.gc_sync_ready(self.curr_session, k, my_idx, len(self.my_gc_tasks[k])):
                     # print(f'[Unum] deleting {self.ds.checkpoint_name(self.curr_session, k)}')
                     self.ds.delete_checkpoint(self.curr_session, k)
             else:

@@ -22,10 +22,10 @@ Resources:
       CodeUri: analyse/
       Handler: main.lambda_handler
       Policies:
-        - AmazonDynamoDBFullAccess
         - AWSLambdaBasicExecutionRole
         - AWSLambdaRole
         - AmazonS3FullAccess
+        - AmazonDynamoDBFullAccess
       Runtime: python3.12
     Type: AWS::Serverless::Function
   DecodeFunction:
@@ -33,10 +33,10 @@ Resources:
       CodeUri: decode/
       Handler: main.lambda_handler
       Policies:
-        - AmazonDynamoDBFullAccess
         - AWSLambdaBasicExecutionRole
         - AWSLambdaRole
         - AmazonS3FullAccess
+        - AmazonDynamoDBFullAccess
       Runtime: python3.12
     Type: AWS::Serverless::Function
   SummarizeFunction:
@@ -44,10 +44,10 @@ Resources:
       CodeUri: summarize/
       Handler: main.lambda_handler
       Policies:
-        - AmazonDynamoDBFullAccess
         - AWSLambdaBasicExecutionRole
         - AWSLambdaRole
         - AmazonS3FullAccess
+        - AmazonDynamoDBFullAccess
       Runtime: python3.12
     Type: AWS::Serverless::Function
 Transform: AWS::Serverless-2016-10-31

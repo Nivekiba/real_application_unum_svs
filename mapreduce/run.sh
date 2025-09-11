@@ -1,1 +1,10 @@
-aws lambda invoke --function-name  arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-SplitFunction-wmvIyr6Ex7Rr  --invocation-type RequestResponse --payload fileb://events/event.json tmp
+aws lambda invoke --function-name  arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-SplitFunction-wmvIyr6Ex7Rr --invocation-type RequestResponse --payload fileb://events/event.json tmp
+sleep 10
+aws lambda invoke --function-name  arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-SplitFunction-wmvIyr6Ex7Rr --invocation-type RequestResponse --payload fileb://events/event.json tmp
+sleep 10
+aws lambda invoke --function-name  arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-SplitFunction-wmvIyr6Ex7Rr --invocation-type RequestResponse --payload fileb://events/event.json tmp
+sleep 10
+aws lambda invoke --function-name  arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-SplitFunction-wmvIyr6Ex7Rr --invocation-type RequestResponse --payload fileb://events/event.json tmp
+sleep 10
+aws lambda invoke --function-name  arn:aws:lambda:ap-southeast-2:303696760894:function:unum-mapreduce-system-SplitFunction-wmvIyr6Ex7Rr --invocation-type RequestResponse --payload fileb://events/event.json tmp
+sleep 10

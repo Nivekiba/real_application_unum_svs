@@ -1,3 +1,3 @@
-Analyse: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-AnalyseFunction-hhuEfXdiylqI
-Decode: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-DecodeFunction-Pfde7GAMYb5t
-Summarize: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-SummarizeFunction-X744lHtntpBN
+Analyse: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-AnalyseFunction-FKu5ongGfVms
+Decode: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-DecodeFunction-PGm2HUfXvKVl
+Summarize: arn:aws:lambda:ap-southeast-2:303696760894:function:unum-video-processing-system-SummarizeFunction-HgGtrmfF6NkK

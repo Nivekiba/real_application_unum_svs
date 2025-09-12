@@ -1,0 +1,12 @@
+{
+  "Name": "Split",
+  "Checkpoint": true,
+  "Debug": false,
+  "Next": {
+    "Name": "Encode",
+    "InputType": "Map"
+  },
+  "Start": true
+}
+
+

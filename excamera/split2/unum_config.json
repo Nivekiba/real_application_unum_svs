@@ -1,0 +1,12 @@
+{
+  "Name": "Split2",
+  "Checkpoint": true,
+  "Debug": false,
+  "Next": {
+    "Name": "Reencode",
+    "InputType": "Map"
+  },
+  "Start": true
+}
+
+

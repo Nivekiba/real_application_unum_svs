@@ -3,8 +3,8 @@
 		"Source": "http",
 		"Value": {
 			"video": "video_large.mp4",
-			"n_frames": 100,
-			"batch_size": 10,
+			"n_frames": 10,
+			"batch_size": 5,
 			"frames_bucket": "output-mapreduce-bucket",
 			"input_bucket": "input-videoprocessing-bucket",
 			"benchmark_bucket": "input-videoprocessing-bucket",

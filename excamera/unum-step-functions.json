@@ -1,16 +1,54 @@
 {
-  "Comment": "A Hello World example of Unum application",
-  "StartAt": "Hello",
+  "Comment": "An ExCamera application example of Unum application",
+  "StartAt": "Split",
   "States": {
-    "Hello": {
+    "Split": {
       "Type": "Task",
-      "Resource": "Hello",
-      "Next": "World"
+      "Resource": "Split",
+      "Next": "EncodeState"
     },
-    "World": {
-      "Type": "Task",
-      "Resource": "World",
-      "End": true
+    "EncodeState": {
+      "Type": "Map",
+      "Next": "ReencodeState",
+      "Iterator": {
+        "StartAt": "Encode",
+        "States": {
+          "Encode": {
+            "Type": "Task",
+            "Resource": "Encode",
+            "End": true
+          }
+        }
+      }
+    },
+    "ReencodeState": {
+      "Type": "Map",
+      "Next": "RebaseState",
+      "Iterator": {
+        "StartAt": "Reencode",
+        "States": {
+          "Reencode": {
+            "Type": "Task",
+            "Resource": "Reencode",
+            "End": true
+          }
+        }
+      }
+    },
+    "RebaseState": {
+      "Type": "Map",
+      "End": true,
+      "Iterator": {
+        "StartAt": "Rebase",
+        "States": {
+          "Rebase": {
+            "Type": "Task",
+            "Resource": "Rebase",
+            "End": true
+          }
+        }
+      }
     }
   }
 }
+

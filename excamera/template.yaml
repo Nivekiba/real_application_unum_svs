@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Globals:
+  Function:
+    Environment:
+      Variables:
+        CHECKPOINT: true
+        FAAS_PLATFORM: aws
+        GC: true
+        UNUM_INTERMEDIARY_DATASTORE_NAME: unum-intermediate-datastore-excamera
+        UNUM_INTERMEDIARY_DATASTORE_TYPE: dynamodb
+    Timeout: 900
+Outputs:
+  EncodeFunction:
+    Value: !GetAtt EncodeFunction.Arn
+  RebaseFunction:
+    Value: !GetAtt RebaseFunction.Arn
+  ReencodeFunction:
+    Value: !GetAtt ReencodeFunction.Arn
+  Split2Function:
+    Value: !GetAtt Split2Function.Arn
+  SplitFunction:
+    Value: !GetAtt SplitFunction.Arn
+Resources:
+  EncodeFunction:
+    Properties:
+      CodeUri: encode/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  RebaseFunction:
+    Properties:
+      CodeUri: rebase/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  ReencodeFunction:
+    Properties:
+      CodeUri: reencode/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  Split2Function:
+    Properties:
+      CodeUri: split2/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+  SplitFunction:
+    Properties:
+      CodeUri: split/
+      Handler: main.lambda_handler
+      Policies:
+        - AWSLambdaRole
+        - AmazonDynamoDBFullAccess
+        - AmazonS3FullAccess
+        - AWSLambdaBasicExecutionRole
+      Runtime: python3.12
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

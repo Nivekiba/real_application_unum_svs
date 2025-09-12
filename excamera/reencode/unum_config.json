@@ -1,0 +1,20 @@
+{
+  "Name": "Reencode",
+  "Checkpoint": true,
+  "Debug": false,
+  "Next Payload Modifiers": [
+    "Pop"
+  ],
+  "Next": {
+    "Name": "Rebase",
+    "InputType": {
+      "Fan-in": {
+        "Values": [
+          "Reencode-unumIndex-*"
+        ]
+      }
+    }
+  }
+}
+
+

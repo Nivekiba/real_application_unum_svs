@@ -1,6 +1,19 @@
 {
 	"Data": {
 		"Source": "http",
-		"Value": ""
+		"Value": {
+			"segments": [
+				"vid/00000000.y4m",
+				"vid/00000001.y4m",
+				"vid/00000002.y4m",
+				"vid/00000003.y4m",
+				"vid/00000004.y4m"
+			],
+			"batch_size": 2,
+			"input_bucket": "input-excamera-bucket",
+			"output_bucket": "output-excamera-bucket",
+			"benchmark_bucket": "input-excamera-bucket",
+			"quality": 1
+		}
 	}
 }

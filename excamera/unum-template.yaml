@@ -1,22 +1,43 @@
 Globals:
-  ApplicationName: unum-hello-world
+  ApplicationName: unum-excamera-system
   WorkflowType: step-functions
   WorkflowDefinition: unum-step-functions.json
   FaaSPlatform: aws
   UnumIntermediaryDataStoreType: dynamodb
-  UnumIntermediaryDataStoreName: unum-intermediate-datastore
+  UnumIntermediaryDataStoreName: unum-intermediate-datastore-excamera
   Checkpoint: true
-  Debug: false
+  Debug: true
+  GC: true
 Functions:
-  Hello:
+  Split:
     Properties:
-      CodeUri: hello/
-      Runtime: python3.8
+      CodeUri: split/
+      Runtime: python3.12
       Start: true
-  World:
-    Properties:
-      CodeUri: world/
-      Runtime: python3.8
       Policies:
-        - AmazonSNSFullAccess
-        - AmazonSQSFullAccess
+        - AmazonS3FullAccess
+  Split2:
+    Properties:
+      CodeUri: split2/
+      Runtime: python3.12
+      Start: true
+      Policies:
+        - AmazonS3FullAccess
+  Encode:
+    Properties:
+      CodeUri: encode/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess
+  Rebase:
+    Properties:
+      CodeUri: rebase/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess
+  Reencode:
+    Properties:
+      CodeUri: reencode/
+      Runtime: python3.12
+      Policies:
+        - AmazonS3FullAccess

@@ -1,0 +1,21 @@
+{
+    "Name": "Encode",
+    "Checkpoint": true,
+    "Debug": false,
+    "Next Payload Modifiers": [
+      "Pop"
+    ],
+    "Next": {
+      "Name": "Split2",
+      "InputType": {
+        "Fan-in": {
+          "Values": [
+            "Encode-unumIndex-*"
+          ]
+        }
+      }
+    }
+  }
+  
+  
+  
